@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0"
+       class="in-text" default-locale="en-US" demote-non-dropping-particle="never">
+  <info>
+    <title>APA (Numbered In-text)</title>
+    <id>http://www.zotero.org/styles/apa-numbered</id>
+    <link href="http://www.zotero.org/styles/apa-numbered" rel="self"/>
+    <author>
+      <name>Custom Style (APA bibliography + numeric citations)</name>
+    </author>
+    <category citation-format="numeric"/>
+    <summary>Numeric in-text citations with APA-style bibliography</summary>
+    <updated>2025-09-30T12:00:00+00:00</updated>
+  </info>
+
+  <!-- In-text citation: [1], [2] -->
+  <citation collapse="citation-number">
+    <layout prefix="[" suffix="]" delimiter=",">
+      <text variable="citation-number"/>
+    </layout>
+  </citation>
+
+  <!-- Bibliography in APA format -->
+  <bibliography et-al-min="7" et-al-use-first="6" hanging-indent="true" line-spacing="2" entry-spacing="0">
+    <sort>
+      <key variable="citation-number"/>
+    </sort>
+    <layout>
+      <group delimiter=". ">
+        <text macro="author"/>
+        <text macro="issued"/>
+        <text macro="title"/>
+        <text macro="container"/>
+        <text macro="publisher"/>
+        <text macro="access"/>
+      </group>
+    </layout>
+  </bibliography>
+
+  <!-- Macros for APA -->
+  <macro name="author">
+    <names variable="author">
+      <name form="long" and="symbol" delimiter=", " delimiter-precedes-last="always"/>
+    </names>
+  </macro>
+
+  <macro name="issued">
+    <date variable="issued">
+      <date-part name="year" prefix=" (" suffix=")."/>
+    </date>
+  </macro>
+
+  <macro name="title">
+    <text variable="title" font-style="italic"/>
+  </macro>
+
+  <macro name="container">
+    <group delimiter=", ">
+      <text variable="container-title" font-style="italic"/>
+      <text variable="volume"/>
+      <text variable="page"/>
+    </group>
+  </macro>
+
+  <macro name="publisher">
+    <text variable="publisher"/>
+  </macro>
+
+  <macro name="access">
+    <text variable="DOI" prefix=" https://doi.org/"/>
+  </macro>
+</style>
